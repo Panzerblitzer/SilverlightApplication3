@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+
+<products>
+	<product id = "11">
+		<tradegood>Textiles</tradegood>
+		<baseprice>3000</baseprice>
+		<purchaseDMs>
+			<mod type="Ag">-7</mod>
+			<mod type="NonAg">-5</mod>
+			<mod type="NonInd">-3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">-6</mod>
+			<mod type="NonAg">1</mod>
+			<mod type="Rich">3</mod>
+		</resaleDMs>
+		<quantity>90</quantity>
+	</product>
+	<product id="12">
+		<tradegood>Polymers</tradegood>
+		<baseprice>7000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-3</mod>
+			<mod type="Poor">2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">3</mod>
+		</resaleDMs>
+		<quantity>120</quantity>
+	</product>
+	<product id="13">
+		<tradegood>Liquor</tradegood>
+		<baseprice>10000</baseprice>
+		<purchaseDMs>
+			<mod type="Ag">-4</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">-3</mod>
+			<mod type="Ind">1</mod>
+			<mod type="Rich">2</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="14">
+		<tradegood>Wood</tradegood>
+		<baseprice>1000</baseprice>
+		<purchaseDMs>
+			<mod type="Ag">-6</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">-6</mod>
+			<mod type="Ind">1</mod>
+			<mod type="Rich">2</mod>
+		</resaleDMs>
+		<quantity>120</quantity>
+	</product>
+	<product id="15">
+		<tradegood>Crystals</tradegood>
+		<baseprice>20000</baseprice>
+		<purchaseDMs>
+			<mod type="NonAg">-3</mod>
+			<mod type="Ind">4</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonAg">-3</mod>
+			<mod type="Ind">3</mod>
+			<mod type="Rich">3</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="16">
+		<tradegood>Radioactives</tradegood>
+		<baseprice>1000000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">7</mod>
+			<mod type="NonInd">-3</mod>
+			<mod type="Rich">5</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">6</mod>
+			<mod type="NonInd">-3</mod>
+			<mod type="Rich">-4</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="21">
+		<tradegood>Steel</tradegood>
+		<baseprice>500</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="Poor">1</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="Poor">+3</mod>
+		</resaleDMs>
+		<quantity>240</quantity>
+	</product>
+	<product id="22">
+		<tradegood>Copper</tradegood>
+		<baseprice>2000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">1</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-1</mod>
+		</resaleDMs>
+		<quantity>240</quantity>
+	</product>
+	<product id="23">
+		<tradegood>Aluminum</tradegood>
+		<baseprice>1000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">1</mod>			
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="NonInd">4</mod>
+			<mod type="Rich">-1</mod>
+		</resaleDMs>
+		<quantity>300</quantity>
+	</product>
+	<product id="24">
+		<tradegood>Tin</tradegood>
+		<baseprice>9000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">1</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-1</mod>
+		</resaleDMs>
+		<quantity>180</quantity>
+	</product>
+	<product id="25">
+		<tradegood>Silver</tradegood>
+		<baseprice>70000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">5</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="Poor">+2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">+5</mod>
+			<mod type="Rich">-1</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="26">
+		<tradegood>Special Alloys</tradegood>
+		<baseprice>200000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="NonInd">5</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="NonInd">4</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="31">
+		<tradegood>Petrochemicals</tradegood>
+		<baseprice>10000</baseprice>
+		<purchaseDMs>
+			<mod type="NonAg">-4</mod>
+			<mod type="Ind">1</mod>
+			<mod type="NonInd">-5</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonAg">-4</mod>
+			<mod type="Ind">3</mod>
+			<mod type="NonInd">-5</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="32">
+		<tradegood>Grain</tradegood>
+		<baseprice>300</baseprice>
+		<purchaseDMs>
+			<mod type="Ag">-2</mod>
+			<mod type="NonAg">1</mod>
+			<mod type="Ind">2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">-2</mod>
+		</resaleDMs>
+		<quantity>240</quantity>
+	</product>
+	<product id="33">
+		<tradegood>Meat</tradegood>
+		<baseprice>1500</baseprice>
+		<purchaseDMs>
+			<mod type="Ag">-2</mod>
+			<mod type="NonAg">2</mod>
+			<mod type="Ind">3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">-2</mod>
+			<mod type="Ind">2</mod>
+			<mod type="Poor">1</mod>
+		</resaleDMs>
+		<quantity>120</quantity>
+	</product>
+	<product id="34">
+		<tradegood>Spices</tradegood>
+		<baseprice>6000</baseprice>
+		<purchaseDMs>
+			<mod type="Ag">-2</mod>
+			<mod type="NonAg">3</mod>
+			<mod type="Ind">2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">-2</mod>
+			<mod type="Rich">2</mod>
+			<mod type="Poor">3</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="35">
+		<tradegood>Fruit</tradegood>
+		<baseprice>1000</baseprice>
+		<purchaseDMs>
+			<mod type="Ag">-3</mod>
+			<mod type="NonAg">1</mod>
+			<mod type="Ind">2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">-2</mod>
+			<mod type="Ind">3</mod>
+			<mod type="Poor">2</mod>
+		</resaleDMs>
+		<quantity>60</quantity>
+	</product>
+	<product id="36">
+		<tradegood>Pharmaceuticals</tradegood>
+		<baseprice>100000</baseprice>
+		<purchaseDMs>
+			<mod type="NonAg">-3</mod>
+			<mod type="Ind">4</mod>
+			<mod type="Poor">3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonAg">-3</mod>
+			<mod type="Ind">5</mod>
+			<mod type="Rich">4</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="41">
+		<tradegood>Gems</tradegood>
+		<baseprice>1000000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">4</mod>
+			<mod type="NonInd">-8</mod>
+			<mod type="Poor">-3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">4</mod>
+			<mod type="NonInd">-2</mod>
+			<mod type="Rich">8</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="42">
+		<tradegood>Firearms</tradegood>
+		<baseprice>30000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="Poor">3</mod>
+		</resaleDMs>
+		<quantity>12</quantity>
+	</product>
+	<product id="43">
+		<tradegood>Ammunition</tradegood>
+		<baseprice>30000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="Poor">3</mod>
+		</resaleDMs>
+		<quantity>12</quantity>
+	</product>
+	<product id="44">
+		<tradegood>Blades</tradegood>
+		<baseprice>10000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="Poor">3</mod>
+		</resaleDMs>
+		<quantity>12</quantity>
+	</product>
+	<product id="45">
+		<tradegood>Tools</tradegood>
+		<baseprice>10000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-1</mod>
+			<mod type="Poor">3</mod>
+		</resaleDMs>
+		<quantity>12</quantity>
+	</product>
+	<product id="46">
+		<tradegood>Body Armor</tradegood>
+		<baseprice>50000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-1</mod>
+			<mod type="Rich">-3</mod>
+			<mod type="Poor">3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">1</mod>
+			<mod type="Poor">4</mod>
+		</resaleDMs>
+		<quantity>12</quantity>
+	</product>
+	<product id="51">
+		<tradegood>Aircraft</tradegood>
+		<baseprice>1000000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-4</mod>
+			<mod type="Rich">-3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">2</mod>
+			<mod type="Poor">1</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="52">
+		<tradegood>Air Raft</tradegood>
+		<baseprice>6000000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">2</mod>
+			<mod type="Poor">1</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="53">
+		<tradegood>Computers</tradegood>
+		<baseprice>10000000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">2</mod>
+			<mod type="Poor">1</mod>
+			<mod type="Ag">-3</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="54">
+		<tradegood>All Terrain Vehicles</tradegood>
+		<baseprice>3000000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-2</mod>
+			<mod type="Rich">-2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">2</mod>
+			<mod type="Poor">1</mod>
+			<mod type="Ag">1</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="55">
+		<tradegood>Armored Vehicles</tradegood>
+		<baseprice>7000000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-5</mod>
+			<mod type="Rich">-2</mod>
+			<mod type="Poor">4</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonAg">-2</mod>
+			<mod type="Ag">2</mod>
+			<mod type="Rich">1</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="56">
+		<tradegood>Farm Machinery</tradegood>
+		<baseprice>150000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-5</mod>
+			<mod type="Rich">-2</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="Ag">5</mod>
+			<mod type="NonAg">-8</mod>
+			<mod type="Poor">1</mod>
+		</resaleDMs>
+		<quantity>6</quantity>
+	</product>
+	<product id="61">
+		<tradegood>Electronic Parts</tradegood>
+		<baseprice>100000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-4</mod>
+			<mod type="Rich">-3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">2</mod>
+			<mod type="Poor">1</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="62">
+		<tradegood>Mechanical Parts</tradegood>
+		<baseprice>70000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-5</mod>
+			<mod type="Rich">-3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">3</mod>
+			<mod type="Ag">2</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="63">
+		<tradegood>Cybernetic Parts</tradegood>
+		<baseprice>250000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-4</mod>
+			<mod type="Rich">-1</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">4</mod>
+			<mod type="Ag">1</mod>
+			<mod type="NonAg">2</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="64">
+		<tradegood>Computer Parts</tradegood>
+		<baseprice>150000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-5</mod>
+			<mod type="Rich">-3</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">3</mod>
+			<mod type="Ag">1</mod>
+			<mod type="NonAg">2</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="65">
+		<tradegood>Machine Tools</tradegood>
+		<baseprice>750000</baseprice>
+		<purchaseDMs>
+			<mod type="Ind">-5</mod>
+			<mod type="Rich">-4</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonInd">3</mod>
+			<mod type="Ag">1</mod>
+			<mod type="NonAg">2</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+	<product id="66">
+		<tradegood>Vacc Suits</tradegood>
+		<baseprice>400000</baseprice>
+		<purchaseDMs>
+			<mod type="NonAg">-5</mod>
+			<mod type="Ind">-3</mod>
+			<mod type="Rich">-1</mod>
+		</purchaseDMs>
+		<resaleDMs>
+			<mod type="NonAg">-1</mod>
+			<mod type="NonInd">2</mod>
+			<mod type="Poor">1</mod>
+		</resaleDMs>
+		<quantity>30</quantity>
+	</product>
+</products>
