@@ -63,6 +63,11 @@ namespace SilverlightApplication3
             txtGridPosition.Text = HexLocation(farTrader.Location);
         }
 
+        /// <summary>
+        /// Given a two digit hex coordinate, returns a string of Planet Name (x, y)
+        /// </summary>
+        /// <param name="location">"xy"</param>
+        /// <returns>"Planet Name (x, y)"</returns>
         private string HexLocation(string location)
         {
             foreach (Planet item in planetList)
@@ -151,6 +156,7 @@ namespace SilverlightApplication3
             if (random.Next(1, 7) > 5)
             {
                 SolidColorBrush blackBrush = new SolidColorBrush(Colors.Black);
+                SolidColorBrush whiteBrush = new SolidColorBrush(Colors.White);
                 SolidColorBrush redBrush = new SolidColorBrush(Colors.Red);
                 SolidColorBrush clearBrush = new SolidColorBrush(Colors.Transparent);
                 SolidColorBrush amberBrush = new SolidColorBrush(Colors.Yellow);
@@ -198,7 +204,7 @@ namespace SilverlightApplication3
                 tbStarport.SetValue(Canvas.LeftProperty, xValue);
                 tbStarport.SetValue(Canvas.TopProperty, yValue - 17);
                 tbStarport.Width = 50;
-                tbStarport.Foreground = greenBrush;
+                tbStarport.Foreground = new SolidColorBrush(Colors.LightGray);
                 tbStarport.Height = 10;
                 tbStarport.FontWeight = FontWeights.Bold;
                 tbStarport.Text = newPlanet.UPC.Substring(0, 1);
@@ -210,12 +216,36 @@ namespace SilverlightApplication3
                     navalBase.Source = new BitmapImage(new Uri("Images/anchor.png", UriKind.Relative));
 
                     navalBase.SetValue(Canvas.LeftProperty, Canvas.GetLeft(star) - 14);
-                    navalBase.SetValue(Canvas.TopProperty, Canvas.GetTop(star) - 12);
+                    navalBase.SetValue(Canvas.TopProperty, Canvas.GetTop(star) - 10);
 
                     navalBase.IsHitTestVisible = false;
                     cnvsHexGrid.Children.Add(navalBase);
                 }
-                //TODO: Add Scout Base symbol
+
+                if (newPlanet.UPC.Substring(12, 1) == "S")
+                {
+                    Image scoutBase = new Image();
+                    scoutBase.Source = new BitmapImage(new Uri("Images/scout.png", UriKind.Relative));
+
+                    scoutBase.SetValue(Canvas.LeftProperty, Canvas.GetLeft(star) - 14);
+                    scoutBase.SetValue(Canvas.TopProperty, Canvas.GetTop(star) + 8);
+                    scoutBase.IsHitTestVisible = false;
+                    cnvsHexGrid.Children.Add(scoutBase);
+                }
+
+                if (newPlanet.UPC.Substring(13, 1) == "G")
+                {
+                    Ellipse gasGiant = new Ellipse();
+                    gasGiant.Width = 5;
+                    gasGiant.Height = 5;
+                    gasGiant.Stroke = redBrush;
+                    gasGiant.Fill = redBrush;
+                    gasGiant.SetValue(Canvas.LeftProperty, Canvas.GetLeft(star) + 14);
+                    gasGiant.SetValue(Canvas.TopProperty, Canvas.GetTop(star) - 10);
+                    gasGiant.IsHitTestVisible = false;
+                    cnvsHexGrid.Children.Add(gasGiant);
+                }
+
                 //TODO: Add Gas Giants symbol
             }
         }

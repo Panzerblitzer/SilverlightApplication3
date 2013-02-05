@@ -113,6 +113,7 @@
     <None Include="Properties\OutOfBrowserSettings.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\scout.png" />
     <Content Include="products.xml" />
     <Resource Include="Images\Background.jpg" />
     <Resource Include="Images\FarTrader.png" />
