@@ -23,6 +23,7 @@ namespace SilverlightApplication3
         public Ship farTrader = new Ship(100, 10);
         Image shipImage = new Image();
         public String selectedHex = "00";
+        public String destination = "00";
         public Catalog catalog = new Catalog();
      
         public MainPage()
@@ -237,11 +238,9 @@ namespace SilverlightApplication3
         {
             Polygon hex = sender as Polygon;
             selectedHex = hex.Name.ToString();
+            destination = selectedHex;
 
             bool empty = true;
-
-            //TODO: Re-insert destination as a global string for the Move Button.
-            //selectedHex is carrying full name.
             
             Hexagon destinationHex = hexGrid.First(h => h.Name == selectedHex);
             Hexagon locationHex = hexGrid.First(h => h.Name == farTrader.Location);
@@ -303,7 +302,7 @@ namespace SilverlightApplication3
             mySB.Children.Clear();
 
             Ellipse sys = new Ellipse();
-            sys = (Ellipse)cnvsHexGrid.FindName("Planet" + selectedHex);
+            sys = (Ellipse)cnvsHexGrid.FindName("Planet" + destination);
             
 
             Double x1 = new Double();
@@ -313,7 +312,7 @@ namespace SilverlightApplication3
             {
                 x1 = (Double)sys.GetValue(Canvas.LeftProperty) - 4;
                 y1 = (Double)sys.GetValue(Canvas.TopProperty) - 4;
-                farTrader.Location = selectedHex;
+                farTrader.Location = destination;
                 txtGridPosition.Text = HexLocation(farTrader.Location);
                 txtGridDestination.Text = "";
                 txtStatus.Text = "";
