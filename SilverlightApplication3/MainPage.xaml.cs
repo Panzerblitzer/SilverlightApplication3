@@ -174,13 +174,13 @@ namespace SilverlightApplication3
                 star.SetValue(Canvas.LeftProperty, xValue);
                 star.SetValue(Canvas.TopProperty, yValue);
                 star.IsHitTestVisible = false;
-                //ToolTipService.SetToolTip(star, star.Name);
                 cnvsHexGrid.Children.Add(star);
                 Planet newPlanet = new Planet(col.ToString() + row.ToString());
                 planetList.Add(newPlanet);
+
+                //Travel Zone
                 if ((newPlanet.UPC.Substring(15, 1) == "R") || (newPlanet.UPC.Substring(15, 1) == "A"))
                 {
-                    //Draw Red Circle
                     Ellipse tz = new Ellipse();
                     if (newPlanet.UPC.Substring(15, 1) == "R")
                     {
@@ -199,6 +199,7 @@ namespace SilverlightApplication3
                     cnvsHexGrid.Children.Add(tz);
                 }
 
+                //Starport
                 TextBlock tbStarport = new TextBlock();
                 tbStarport.Name = "Starport" + star.Name;
                 tbStarport.SetValue(Canvas.LeftProperty, xValue);
@@ -210,6 +211,7 @@ namespace SilverlightApplication3
                 tbStarport.Text = newPlanet.UPC.Substring(0, 1);
                 cnvsHexGrid.Children.Add(tbStarport);
 
+                //Naval Base
                 if (newPlanet.UPC.Substring(11, 1) == "N")
                 {
                     Image navalBase = new Image();
@@ -222,6 +224,7 @@ namespace SilverlightApplication3
                     cnvsHexGrid.Children.Add(navalBase);
                 }
 
+                //Scout Base
                 if (newPlanet.UPC.Substring(12, 1) == "S")
                 {
                     Image scoutBase = new Image();
@@ -233,6 +236,7 @@ namespace SilverlightApplication3
                     cnvsHexGrid.Children.Add(scoutBase);
                 }
 
+                //Gas Giants
                 if (newPlanet.UPC.Substring(13, 1) == "G")
                 {
                     Ellipse gasGiant = new Ellipse();
@@ -245,8 +249,6 @@ namespace SilverlightApplication3
                     gasGiant.IsHitTestVisible = false;
                     cnvsHexGrid.Children.Add(gasGiant);
                 }
-
-                //TODO: Add Gas Giants symbol
             }
         }
 
