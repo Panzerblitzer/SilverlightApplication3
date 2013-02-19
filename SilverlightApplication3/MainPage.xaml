@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
     mc:Ignorable="d"
     d:DesignHeight="800" d:DesignWidth="1000" 
     xmlns:my="clr-namespace:SilverlightApplication3" 
@@ -83,13 +84,13 @@
                         </DoubleAnimation>
                     </Storyboard>                    
                 </Canvas.Resources>
-                <sdk:DataGrid AlternatingRowBackground="Transparent" RowBackground="Transparent" HeadersVisibility="Column" Background="Transparent" Foreground="Lime" GridLinesVisibility="None" AutoGenerateColumns="False" Width="304" Height="450" HorizontalAlignment="Left" Name="dgPlanetList" VerticalAlignment="Top">                    
-                    <sdk:DataGrid.Columns>
-                        <sdk:DataGridTextColumn Header="Hex" Binding="{Binding HexLocation}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="45" x:Name="planetLocation" />
-                        <sdk:DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="100" x:Name="planetName" />
-                        <sdk:DataGridTextColumn Header="UPC" Binding="{Binding UPC}" CanUserReorder="False" CanUserResize="False" FontFamily="Courier New" IsReadOnly="True" Width="140" x:Name="planetUPC" />
-                    </sdk:DataGrid.Columns>
-                </sdk:DataGrid>
+                <data:DataGrid RowStyle="{StaticResource MyCustomRow}" CellStyle="{StaticResource MyCustomCell}" AlternatingRowBackground="Transparent" RowBackground="Transparent" HeadersVisibility="Column" Background="Transparent" Foreground="Lime" GridLinesVisibility="None" AutoGenerateColumns="False" Width="304" Height="450" HorizontalAlignment="Left" Name="dgPlanetList" VerticalAlignment="Top">                    
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn Header="Hex" Binding="{Binding HexLocation}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="45" x:Name="planetLocation" />
+                        <data:DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="100" x:Name="planetName" />
+                        <data:DataGridTextColumn Header="UPC" Binding="{Binding UPC}" CanUserReorder="False" CanUserResize="False" FontFamily="Courier New" IsReadOnly="True" Width="140" x:Name="planetUPC" />
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
                 <Button  x:Name="dgHandle" Click="dgHandle_Click" Height="15" Width="304" Canvas.Top="450" Content="^">
                     <Button.RenderTransform>
                         <RotateTransform x:Name="dgHandleTransform"/>
