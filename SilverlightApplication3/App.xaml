@@ -21,25 +21,25 @@
                                         </Storyboard>
                                     </vsm:VisualState>
                                     <vsm:VisualState x:Name="MouseOver">
-                                    <!--    <Storyboard>
+                                        <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
-                                        </Storyboard>-->
+                                        </Storyboard>
                                     </vsm:VisualState>
                                     <vsm:VisualState x:Name="NormalSelected">
-                                        <!--<Storyboard>
+                                        <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
-                                        </Storyboard>-->
+                                        </Storyboard>
                                     </vsm:VisualState>
                                     <vsm:VisualState x:Name="MouseOverSelected">
-                                    <!--    <Storyboard>
+                                        <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
-                                        </Storyboard>-->
+                                        </Storyboard>
                                     </vsm:VisualState>
                                     <vsm:VisualState x:Name="UnfocusedSelected">
-                                        <!--<Storyboard>
+                                        <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
-                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Fill).Color" To="#FFE1E7EC"/>
-                                        </Storyboard>-->
+                                            <ColorAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Fill).Color" To="#FF000000"/>
+                                        </Storyboard>
                                     </vsm:VisualState>
                                 </vsm:VisualStateGroup>
                                 <vsm:VisualStateGroup x:Name="ValidationStates">
@@ -70,7 +70,7 @@
                                 </Storyboard>
                             </Grid.Resources>
 
-                            <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#FFBADDE9"/>
+                            <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#FF000000"/>
                             <Rectangle x:Name="InvalidVisualElement" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" Fill="#FFF7D8DB"/>
 
                             <localprimitives:DataGridRowHeader Grid.RowSpan="3" Name="RowHeader" localprimitives:DataGridFrozenGrid.IsFrozen="True" />
@@ -94,11 +94,7 @@
                             <vsm:VisualStateManager.VisualStateGroups>
                                 <vsm:VisualStateGroup x:Name="CurrentStates">
                                     <vsm:VisualState x:Name="Regular" />
-                                    <vsm:VisualState x:Name="Current">
-                                        <!--<Storyboard>
-                                            <DoubleAnimation Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1" Duration="0" />
-                                        </Storyboard>-->
-                                    </vsm:VisualState>
+                                    <vsm:VisualState x:Name="Current" />
                                 </vsm:VisualStateGroup>
                                 <vsm:VisualStateGroup x:Name="ValidationStates">
                                     <vsm:VisualState x:Name="Valid"/>

@@ -84,7 +84,7 @@
                         </DoubleAnimation>
                     </Storyboard>                    
                 </Canvas.Resources>
-                <data:DataGrid RowStyle="{StaticResource MyCustomRow}" CellStyle="{StaticResource MyCustomCell}" AlternatingRowBackground="Transparent" RowBackground="Transparent" HeadersVisibility="Column" Background="Transparent" Foreground="Lime" GridLinesVisibility="None" AutoGenerateColumns="False" Width="304" Height="450" HorizontalAlignment="Left" Name="dgPlanetList" VerticalAlignment="Top">                    
+                <data:DataGrid SelectionChanged="dgPlanetList_SelectionChanged" RowStyle="{StaticResource MyCustomRow}" CellStyle="{StaticResource MyCustomCell}" AlternatingRowBackground="Transparent" RowBackground="Transparent" HeadersVisibility="Column" Background="Transparent" Foreground="Lime" GridLinesVisibility="None" AutoGenerateColumns="False" Width="304" Height="450" HorizontalAlignment="Left" Name="dgPlanetList" VerticalAlignment="Top">                    
                     <data:DataGrid.Columns>
                         <data:DataGridTextColumn Header="Hex" Binding="{Binding HexLocation}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="45" x:Name="planetLocation" />
                         <data:DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="100" x:Name="planetName" />

@@ -283,24 +283,20 @@ namespace SilverlightApplication3
                 {
                     selectedHex = item.Name + " (" + selectedHex.Insert(1, ", ") + ") ";
                     empty = false;
-                    txtStatus.Text = Hexagon.ComputeRange(locationHex.Location, destinationHex.Location).ToString();
+                    txtStatus.Text = "Range: " + Hexagon.ComputeRange(locationHex.Location, destinationHex.Location).ToString();
                 }
             }
 
             if (empty)
             {
                 selectedHex = selectedHex.Insert(1, ", ");
-                txtStatus.Text = Hexagon.ComputeRange(locationHex.Location, destinationHex.Location).ToString();
+                //txtStatus.Text = Hexagon.ComputeRange(locationHex.Location, destinationHex.Location).ToString();
                 txtStatus.Text = "Only the cold emptiness of space awaits you there!";
             }
 
             txtGridDestination.Text = selectedHex;
-        }
+            dgPlanetList.SelectedIndex = -1;
 
-        private void Load_Main(object sender, RoutedEventArgs e)
-        {
-            UIElement target = sender as UIElement;
-            target.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(hex_MouseLeftButtonDown), true);
         }
 
         private void dgHandle_Click(object sender, RoutedEventArgs e)
@@ -335,7 +331,7 @@ namespace SilverlightApplication3
 
             Ellipse sys = new Ellipse();
             sys = (Ellipse)cnvsHexGrid.FindName("Planet" + destination);
-            
+
 
             Double x1 = new Double();
             Double y1 = new Double();
@@ -378,8 +374,27 @@ namespace SilverlightApplication3
 
             mySB.Begin();
 
-            
-            
+            dgPlanetList.SelectedIndex = -1;
+
+        }
+
+        private void dgPlanetList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgPlanetList.SelectedIndex >= 0)
+            {
+                Planet targetPlanet = (Planet)dgPlanetList.SelectedItem;
+                Hexagon destinationHex = hexGrid.First(h => h.Name.Insert(1, ", ") == targetPlanet.HexLocation);
+                Hexagon locationHex = hexGrid.First(h => h.Name == farTrader.Location);
+                destination = destinationHex.Name;
+                txtGridDestination.Text = targetPlanet.Name + " (" + destination.Insert(1, ", ") + ") ";
+                txtStatus.Text = "Range: " + Hexagon.ComputeRange(locationHex.Location, destinationHex.Location).ToString();
+            }
+        }        
+
+        private void Load_Main(object sender, RoutedEventArgs e)
+        {
+            UIElement target = sender as UIElement;
+            target.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(hex_MouseLeftButtonDown), true);
         }
 
     }
