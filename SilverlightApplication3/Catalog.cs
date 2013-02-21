@@ -70,6 +70,7 @@ namespace SilverlightApplication3
 
         public double ActualValueModifier(Dictionary<string, int> modifier, string planetType)
         {
+            //TODO: string planetType not same format as DMs in XML file.
             int dieRoll = random.Next(2, 13) - modifier.FirstOrDefault(item => item.Key == planetType).Value;
             dieRoll = (dieRoll < 2) ? 2 : dieRoll;
             switch (dieRoll)
