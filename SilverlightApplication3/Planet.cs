@@ -105,26 +105,26 @@ namespace SilverlightApplication3
         private String buildUPC()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(p_Starport());
-            sb.Append('-');
-            sb.Append(p_Size());
-            sb.Append(p_Atmosphere());
-            sb.Append(p_Hydrographics());
-            sb.Append(p_Population());
-            sb.Append(p_Government());
-            sb.Append(p_LawLevel());
-            sb.Append(' ');
-            sb.Append(p_TechLevel());
-            sb.Append(' ');
-            sb.Append(p_NavalBase(Starport));
-            sb.Append(p_ScoutBase(Starport));
-            sb.Append(p_GasGiant());
-            sb.Append(' ');
+            sb.Append(p_Starport());//0
+            sb.Append('-');//1
+            sb.Append(p_Size());//2
+            sb.Append(p_Atmosphere());//3
+            sb.Append(p_Hydrographics());//4
+            sb.Append(p_Population());//5
+            sb.Append(p_Government());//6
+            sb.Append(p_LawLevel());//7
+            sb.Append(' ');//8
+            sb.Append(p_TechLevel());//9
+            sb.Append(' ');//10
+            sb.Append(p_NavalBase(Starport));//11
+            sb.Append(p_ScoutBase(Starport));//12
+            sb.Append(p_GasGiant());//13
+            sb.Append(' ');//14
             TravelZone = p_TravelZone();
-            sb.Append(TravelZone);
-            sb.Append(' ');
+            sb.Append(TravelZone);//15
+            sb.Append(' ');//16
             TradeClass = p_TradeClass();
-            sb.Append(TradeClass);
+            sb.Append(TradeClass);//17
 
             return sb.ToString();
         }

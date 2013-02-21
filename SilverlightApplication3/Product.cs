@@ -10,22 +10,28 @@ namespace SilverlightApplication3
     public class Product
     {
         private string p_ProductName;
-        private int p_BasePrice;
-        private int p_Quantity;
+        private double p_BasePrice;
+        private int p_MaxQuantity;
         private double p_ActualValue;
         private int p_id;
+        private int p_Quantity;
 
         public string ProductName
         {
             get { return p_ProductName; }
             set { p_ProductName = value; }
         }
-        public int BasePrice
+        public double BasePrice
         {
             get { return p_BasePrice; }
             set { p_BasePrice = value; }
         }
         public int MaxQuantity
+        {
+            get { return p_MaxQuantity; }
+            set { p_MaxQuantity = value; }
+        }
+        public int QuantityAvailable 
         {
             get { return p_Quantity; }
             set { p_Quantity = value; }
@@ -43,6 +49,7 @@ namespace SilverlightApplication3
 
         public Dictionary<string, int> ResaleDMs;
         public Dictionary<string, int> PurchaseDMs;
+
 
 
     }

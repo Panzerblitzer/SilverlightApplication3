@@ -63,7 +63,7 @@ namespace SilverlightApplication3
             reader.Close();
         }
 
-        public int QuantityAvailable(int maxQuantity)
+        public int Quantity(int maxQuantity)
         {
             return random.Next(1, (maxQuantity + 1));
         }
@@ -112,13 +112,13 @@ namespace SilverlightApplication3
             return p;
         }
 
-        public Product GetRandomProduct()
+        public Product GetRandomMarketProduct(string planetType)
         {
             int id = int.Parse(random.Next(1, 7).ToString() + random.Next(1, 7).ToString());
             Product p = products.FirstOrDefault(item => item.Id == id);
+            p.QuantityAvailable = Quantity(p.MaxQuantity);
+            p.ActualValue = p.BasePrice * ActualValueModifier(p.PurchaseDMs, planetType) * p.QuantityAvailable;
             return p;
         }
-
-
     }
 }

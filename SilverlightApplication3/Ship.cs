@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 
 namespace SilverlightApplication3
@@ -13,7 +14,7 @@ namespace SilverlightApplication3
         public int FuelCapacity { get; private set; }
         public int Fuel { get; private set; }
         public string Location { get; set; }
-        public List<Product> Cargo;
+        public ObservableCollection<Product> Cargo;
         #endregion
 
         #region Constructors
@@ -44,14 +45,16 @@ namespace SilverlightApplication3
             Fuel += fuelTons;
         }
 
-        public void loadCargo(int cargoTons)
+        public void loadCargo(int cargoTons, Product lineItem)
         {
             CargoHold += cargoTons;
+            Cargo.Add(lineItem);
         }
 
-        public void unloadCargo(int cargoTons)
+        public void unloadCargo(int cargoTons, Product lineItem)
         {
             CargoHold -= cargoTons;
+            Cargo.Remove(lineItem);
         }
         #endregion
     }

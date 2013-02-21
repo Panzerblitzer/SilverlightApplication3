@@ -25,6 +25,7 @@ namespace SilverlightApplication3
         public String selectedHex = "00";
         public String destination = "00";
         public Catalog catalog = new Catalog();
+        private ObservableCollection<Product> marketList;
      
         public MainPage()
         {
@@ -32,11 +33,15 @@ namespace SilverlightApplication3
 
             planetList = new Collection<Planet>();
 
+            marketList = new ObservableCollection<Product>();
+
             CreateHexGrid(8, 10, 30);
 
             dgPlanetList.ItemsSource = planetList;
 
             startingPosition();
+
+            dgMarketList.ItemsSource = marketList;
 
         }
 
@@ -51,6 +56,7 @@ namespace SilverlightApplication3
             //Find canvas X,Y
             Ellipse sys = new Ellipse();
             sys = (Ellipse)cnvsHexGrid.FindName("Planet" + start.Location);
+            //create ship image
             shipImage.Name = "ship";
             shipImage.Source = new BitmapImage(new Uri("Images/ship.png", UriKind.Relative));
 
@@ -61,6 +67,16 @@ namespace SilverlightApplication3
            
             farTrader.Location = start.Location;
             txtGridPosition.Text = HexLocation(farTrader.Location);
+            PopulateMarketList(start.UPC.Substring(start.UPC.Length - 1, 1));
+        }
+
+        private void PopulateMarketList(string planetType)
+        {
+            int count = random.Next(4, 9);
+            for (int i = 1; i <= count; i++)
+            {
+                marketList.Add(catalog.GetRandomMarketProduct(planetType));
+            }
         }
 
         /// <summary>
@@ -315,12 +331,17 @@ namespace SilverlightApplication3
                 dgHandleTransform.CenterX = (dgHandle.ActualWidth / 2);
                 dgHandleTransform.Angle = 0;
             }
-
-            //TODO: Add products grid and expose as planet list slides up. hide as planet list slides down?
         }
 
         private void btnMove_Click(object sender, RoutedEventArgs e)
         {
+
+            Ellipse sys = new Ellipse();
+            sys = (Ellipse)cnvsHexGrid.FindName("Planet" + destination);
+
+            if ((farTrader.Location == destination) || (sys == null))
+                return;
+            
             mySB.Pause();
 
             Double x = Canvas.GetLeft(shipImage);
@@ -328,10 +349,6 @@ namespace SilverlightApplication3
 
             mySB.Stop();
             mySB.Children.Clear();
-
-            Ellipse sys = new Ellipse();
-            sys = (Ellipse)cnvsHexGrid.FindName("Planet" + destination);
-
 
             Double x1 = new Double();
             Double y1 = new Double();
@@ -375,6 +392,15 @@ namespace SilverlightApplication3
             mySB.Begin();
 
             dgPlanetList.SelectedIndex = -1;
+            marketList.Clear();
+            foreach (Planet item in planetList)
+            {
+                if (farTrader.Location == item.Location)
+                {
+                    PopulateMarketList(item.UPC.Substring(item.UPC.Length - 1, 1));
+                }
+            }
+            //TODO: Recalculate sales prices for cargo items
 
         }
 
@@ -389,7 +415,12 @@ namespace SilverlightApplication3
                 txtGridDestination.Text = targetPlanet.Name + " (" + destination.Insert(1, ", ") + ") ";
                 txtStatus.Text = "Range: " + Hexagon.ComputeRange(locationHex.Location, destinationHex.Location).ToString();
             }
-        }        
+        }
+
+        private void dgMarketList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
 
         private void Load_Main(object sender, RoutedEventArgs e)
         {

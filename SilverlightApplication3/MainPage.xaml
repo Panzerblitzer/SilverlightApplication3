@@ -27,7 +27,6 @@
         <!--/Grid 0,0-->
         <!--Grid 1,0 Empty-->
         <StackPanel x:Name="spEmpty" Width="600" Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
-            
         </StackPanel>
         <!--/Grid 1,0-->
         <!--Grid 0,1-->
@@ -45,7 +44,7 @@
             <StackPanel Orientation="Horizontal" Background="Transparent" VerticalAlignment="Top" Height="35">
                 <TextBlock HorizontalAlignment="Left" Text="Location: " Height="25" Margin="5" Foreground="Lime"></TextBlock>
                 <TextBlock Name="txtGridPosition" Text=" " Height="25" Width="120" Foreground="Lime"></TextBlock>
-                <TextBlock Name="txtStatus" Text=" " Height="25" Width="300" Foreground="Lime"></TextBlock>
+                <TextBlock Name="txtStatus" TextAlignment="Right" Text=" " Height="25" Width="300" Foreground="Lime"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Background="Transparent" VerticalAlignment="Top" Height="35">
                 <TextBlock HorizontalAlignment="Left" Text="Destination: " Height="25" Margin="5" Foreground="Lime"></TextBlock>
@@ -53,50 +52,61 @@
                 <Button Name="btnMove" FontSize="10" Content="Move" Height="25" Width="50" Margin="5" HorizontalAlignment="Right" Click="btnMove_Click"/>
                 <TextBlock Name="txtTESTING" Text=" " Height="25" Width="120" Foreground="Lime"></TextBlock>
             </StackPanel>
-            <Canvas x:Name="cvsPlanetList" Height="500" Background="Transparent">
-                <Canvas.Resources>
-                    <Storyboard x:Name="dgCollapse">
-                        <DoubleAnimation From="450" To="0" Duration="00:00:1" Storyboard.TargetName="dgPlanetList" Storyboard.TargetProperty="Height">
-                            <DoubleAnimation.EasingFunction>
-                                <QuadraticEase EasingMode="EaseInOut" />
-                            </DoubleAnimation.EasingFunction>
-                        </DoubleAnimation>
-                    </Storyboard>
-                    <Storyboard x:Name="dgExpand">
-                        <DoubleAnimation From="0" To="450" Duration="00:00:1" Storyboard.TargetName="dgPlanetList" Storyboard.TargetProperty="Height">
-                            <DoubleAnimation.EasingFunction>
-                                <QuadraticEase EasingMode="EaseInOut" />
-                            </DoubleAnimation.EasingFunction>
-                        </DoubleAnimation>
-                    </Storyboard>
-                    <Storyboard x:Name="dgHandleMoveUp">
-                        <DoubleAnimation From="450" To="20" Duration="00:00:1" Storyboard.TargetName="dgHandle" Storyboard.TargetProperty="(Canvas.Top)">
-                            <DoubleAnimation.EasingFunction>
-                                <QuadraticEase EasingMode="EaseInOut" />
-                            </DoubleAnimation.EasingFunction>
-                        </DoubleAnimation>
-                    </Storyboard>
-                    <Storyboard x:Name="dgHandleMoveDown">
-                        <DoubleAnimation From="0" To="450" Duration="00:00:1" Storyboard.TargetName="dgHandle" Storyboard.TargetProperty="(Canvas.Top)">
-                            <DoubleAnimation.EasingFunction>
-                                <QuadraticEase EasingMode="EaseInOut" />
-                            </DoubleAnimation.EasingFunction>
-                        </DoubleAnimation>
-                    </Storyboard>                    
-                </Canvas.Resources>
-                <data:DataGrid SelectionChanged="dgPlanetList_SelectionChanged" RowStyle="{StaticResource MyCustomRow}" CellStyle="{StaticResource MyCustomCell}" AlternatingRowBackground="Transparent" RowBackground="Transparent" HeadersVisibility="Column" Background="Transparent" Foreground="Lime" GridLinesVisibility="None" AutoGenerateColumns="False" Width="304" Height="450" HorizontalAlignment="Left" Name="dgPlanetList" VerticalAlignment="Top">                    
-                    <data:DataGrid.Columns>
-                        <data:DataGridTextColumn Header="Hex" Binding="{Binding HexLocation}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="45" x:Name="planetLocation" />
-                        <data:DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="100" x:Name="planetName" />
-                        <data:DataGridTextColumn Header="UPC" Binding="{Binding UPC}" CanUserReorder="False" CanUserResize="False" FontFamily="Courier New" IsReadOnly="True" Width="140" x:Name="planetUPC" />
-                    </data:DataGrid.Columns>
-                </data:DataGrid>
-                <Button  x:Name="dgHandle" Click="dgHandle_Click" Height="15" Width="304" Canvas.Top="450" Content="^">
-                    <Button.RenderTransform>
-                        <RotateTransform x:Name="dgHandleTransform"/>
-                    </Button.RenderTransform>
-                </Button>
-            </Canvas>
+            <StackPanel Orientation="Horizontal" Background="Transparent" VerticalAlignment="Top" Height="500">
+                <Canvas x:Name="cvsPlanetList" Height="500" Width="304" Background="Transparent" HorizontalAlignment="Left">
+                    <Canvas.Resources>
+                        <Storyboard x:Name="dgCollapse">
+                            <DoubleAnimation From="450" To="0" Duration="00:00:1" Storyboard.TargetName="dgPlanetList" Storyboard.TargetProperty="Height">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuadraticEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Name="dgExpand">
+                            <DoubleAnimation From="0" To="450" Duration="00:00:1" Storyboard.TargetName="dgPlanetList" Storyboard.TargetProperty="Height">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuadraticEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Name="dgHandleMoveUp">
+                            <DoubleAnimation From="450" To="20" Duration="00:00:1" Storyboard.TargetName="dgHandle" Storyboard.TargetProperty="(Canvas.Top)">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuadraticEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Name="dgHandleMoveDown">
+                            <DoubleAnimation From="0" To="450" Duration="00:00:1" Storyboard.TargetName="dgHandle" Storyboard.TargetProperty="(Canvas.Top)">
+                                <DoubleAnimation.EasingFunction>
+                                    <QuadraticEase EasingMode="EaseInOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </Canvas.Resources>
+                    <data:DataGrid SelectionChanged="dgPlanetList_SelectionChanged" RowStyle="{StaticResource MyCustomRow}" SelectionMode="Single" CellStyle="{StaticResource MyCustomCell}" AlternatingRowBackground="Transparent" RowBackground="Transparent" HeadersVisibility="Column" Background="Transparent" Foreground="Lime" GridLinesVisibility="None" AutoGenerateColumns="False" Width="304" Height="450" HorizontalAlignment="Left" Name="dgPlanetList" VerticalAlignment="Top">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="Hex" Binding="{Binding HexLocation}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="45" x:Name="planetLocation" />
+                            <data:DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="100" x:Name="planetName" />
+                            <data:DataGridTextColumn Header="UPC" Binding="{Binding UPC}" CanUserReorder="False" CanUserResize="False" FontFamily="Courier New" IsReadOnly="True" Width="140" x:Name="planetUPC" />
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                    <Button x:Name="dgHandle" Click="dgHandle_Click" Height="15" Width="304" Canvas.Top="450" Content="^">
+                        <Button.RenderTransform>
+                            <RotateTransform x:Name="dgHandleTransform"/>
+                        </Button.RenderTransform>
+                    </Button>
+                </Canvas>
+                <Canvas x:Name="cvsProducts" Margin="5,0,5,0" Height="500" Width="275" Background="Transparent" HorizontalAlignment="Left">
+                    <data:DataGrid x:Name="dgMarketList" SelectionChanged="dgMarketList_SelectionChanged" RowStyle="{StaticResource MyCustomRow}" CellStyle="{StaticResource MyCustomCell}" SelectionMode="Extended" AlternatingRowBackground="Transparent" RowBackground="Transparent" HeadersVisibility="Column" Background="Transparent" Foreground="Lime" GridLinesVisibility="None" AutoGenerateColumns="False" Height="225" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <data:DataGrid.Columns>
+                            <data:DataGridTextColumn Header="Product" Binding="{Binding ProductName}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="120" x:Name="marketProductName" />
+                            <data:DataGridTextColumn Header="Quantity" Binding="{Binding QuantityAvailable}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="70" x:Name="marketQuantityAvailable" />
+                            <data:DataGridTextColumn Header="Price" Binding="{Binding ActualValue}" CanUserReorder="False" CanUserResize="False" FontFamily="Courier New" IsReadOnly="True" Width="65" x:Name="marketPrice" />
+                        </data:DataGrid.Columns>
+                    </data:DataGrid>
+                </Canvas>  
+            </StackPanel>
         </StackPanel>
         <!--/Grid 1,1-->
         
