@@ -14,54 +14,23 @@ namespace SilverlightApplication3
         private static List<Product> products;
         private static Random random = new Random();
         
-
         public Catalog()
         {
             XDocument productList = XDocument.Load("products.xml");
-
-            products = new List<Product>();
-            XmlReader reader = XmlReader.Create("products.xml");
-            reader.MoveToContent();
-            while (reader.Read())
-            {
-                if (reader.NodeType == XmlNodeType.Element && reader.Name == "product")
-                {
-                    Product product = new Product();
-
-                    product.Id = int.Parse(reader.GetAttribute("id"));
-                    reader.ReadToDescendant("tradegood");
-                    product.ProductName = reader.ReadInnerXml();
-                    reader.ReadToNextSibling("baseprice");
-                    product.BasePrice = int.Parse(reader.ReadInnerXml());
-                    
-                    reader.ReadToNextSibling("purchaseDMs");
-                    Dictionary<string, int> modifiers = new Dictionary<string, int>();
-                    while (reader.ReadToDescendant("mod"))
-                    {
-                        modifiers.Add(reader.GetAttribute("type"), int.Parse(reader.ReadInnerXml()));
-                    }
-                    product.PurchaseDMs = modifiers;
-                    modifiers.Clear();
-
-                    reader.ReadToNextSibling("resaleDMs");
-                    while (reader.ReadToDescendant("mod"))
-                    {
-                        modifiers.Add(reader.GetAttribute("type"), int.Parse(reader.ReadInnerXml()));
-                    }
-                    product.ResaleDMs = modifiers;
-
-                    reader.ReadToNextSibling("quantity");
-                    product.MaxQuantity = int.Parse(reader.ReadInnerXml());
-                    
-                    products.Add(product);
-                }
-                if (reader.NodeType == XmlNodeType.EndElement && reader.Name == "products")
-                {
-                    break;
-                }
-            }
-            reader.Close();
-        }
+            
+            products = (from objProduct in productList.Element("products").Elements("product")
+                                      select new Product
+                                      {
+                                          Id = int.Parse(objProduct.Element("tradegood").Attribute("id").Value),
+                                          ProductName = objProduct.Element("tradegood").Value,
+                                          BasePrice = double.Parse(objProduct.Element("baseprice").Value),
+                                          MaxQuantity = int.Parse(objProduct.Element("quantity").Value),
+                                          PurchaseDMs = objProduct.Element("purchaseDMs").Elements("mod")
+                                                        .ToDictionary(e => e.Attribute("type").Value, e => Convert.ToInt32(e.Value)),
+                                          ResaleDMs = objProduct.Element("purchaseDMs").Elements("mod")
+                                                        .ToDictionary(e => e.Attribute("type").Value, e => Convert.ToInt32(e.Value))
+                                      }).ToList();
+         }
 
         public int Quantity(int maxQuantity)
         {
@@ -70,7 +39,6 @@ namespace SilverlightApplication3
 
         public double ActualValueModifier(Dictionary<string, int> modifier, string planetType)
         {
-            //TODO: string planetType not same format as DMs in XML file.
             int dieRoll = random.Next(2, 13) - modifier.FirstOrDefault(item => item.Key == planetType).Value;
             dieRoll = (dieRoll < 2) ? 2 : dieRoll;
             switch (dieRoll)
@@ -118,7 +86,8 @@ namespace SilverlightApplication3
             int id = int.Parse(random.Next(1, 7).ToString() + random.Next(1, 7).ToString());
             Product p = products.FirstOrDefault(item => item.Id == id);
             p.QuantityAvailable = Quantity(p.MaxQuantity);
-            p.ActualValue = p.BasePrice * ActualValueModifier(p.PurchaseDMs, planetType) * p.QuantityAvailable;
+            double modifier = ActualValueModifier(p.PurchaseDMs, planetType);
+            p.ActualValue = p.BasePrice * modifier * p.QuantityAvailable;
             return p;
         }
     }
