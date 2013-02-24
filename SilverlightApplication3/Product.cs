@@ -13,6 +13,7 @@ namespace SilverlightApplication3
         private double p_BasePrice;
         private int p_MaxQuantity;
         private double p_ActualValue;
+        private double p_LotValue;
         private int p_id;
         private int p_Quantity;
 
@@ -40,6 +41,11 @@ namespace SilverlightApplication3
         {
             get { return p_ActualValue; }
             set { p_ActualValue = value; }
+        }
+        public double LotValue
+        {
+            get { return p_LotValue; }
+            set { p_LotValue = value; }
         }
         public int Id
         {

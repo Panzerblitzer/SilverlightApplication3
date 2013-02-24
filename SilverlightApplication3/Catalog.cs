@@ -87,7 +87,8 @@ namespace SilverlightApplication3
             Product p = products.FirstOrDefault(item => item.Id == id);
             p.QuantityAvailable = Quantity(p.MaxQuantity);
             double modifier = ActualValueModifier(p.PurchaseDMs, planetType);
-            p.ActualValue = p.BasePrice * modifier * p.QuantityAvailable;
+            p.ActualValue = p.BasePrice * modifier;
+            p.LotValue = p.ActualValue * p.QuantityAvailable;
             return p;
         }
     }

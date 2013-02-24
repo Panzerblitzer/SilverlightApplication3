@@ -26,6 +26,7 @@ namespace SilverlightApplication3
         public String destination = "00";
         public Catalog catalog = new Catalog();
         private ObservableCollection<Product> marketList;
+        private ChildWindow purchaseProduct;
      
         public MainPage()
         {
@@ -419,6 +420,20 @@ namespace SilverlightApplication3
 
         private void dgMarketList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (dgMarketList.SelectedIndex >= 0)
+            {
+                Product selectedProduct = (Product)dgMarketList.SelectedItem;
+                //TODO: Add available cargo space and available funds to parameter list
+                purchaseProduct = new ProductPurchase(selectedProduct.ActualValue, selectedProduct.QuantityAvailable);
+                purchaseProduct.Closed += new EventHandler(purchaseProduct_Closed);
+                purchaseProduct.Show();
+            }
+        }
+
+        void purchaseProduct_Closed(object sender, EventArgs e)
+        {
+            ProductPurchase pp = (ProductPurchase)sender;
+            //TODO: Add product to Cargo, subtract purchase price from bank, update marketlist.
 
         }
 

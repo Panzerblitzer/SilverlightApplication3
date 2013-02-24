@@ -102,7 +102,7 @@
                         <data:DataGrid.Columns>
                             <data:DataGridTextColumn Header="Product" Binding="{Binding ProductName}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="120" x:Name="marketProductName" />
                             <data:DataGridTextColumn Header="Quantity" Binding="{Binding QuantityAvailable}" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Width="70" x:Name="marketQuantityAvailable" />
-                            <data:DataGridTextColumn Header="Price" Binding="{Binding ActualValue}" CanUserReorder="False" CanUserResize="False" FontFamily="Courier New" IsReadOnly="True" Width="65" x:Name="marketPrice" />
+                            <data:DataGridTextColumn Header="Price" Binding="{Binding LotValue}" CanUserReorder="False" CanUserResize="False" FontFamily="Courier New" IsReadOnly="True" Width="65" x:Name="marketPrice" />
                         </data:DataGrid.Columns>
                     </data:DataGrid>
                 </Canvas>  

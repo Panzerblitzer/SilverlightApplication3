@@ -86,6 +86,9 @@
     <Compile Include="Planet.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductPurchase.xaml.cs">
+      <DependentUpon>ProductPurchase.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="Views\PlanetInfo.xaml.cs">
@@ -98,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductPurchase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
